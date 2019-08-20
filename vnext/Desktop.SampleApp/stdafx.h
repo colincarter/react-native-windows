@@ -16,3 +16,12 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+
+#include <unknwn.h>
+#include <winrt/base.h>
+#include <winrt/Windows.UI.Xaml.Controls.h>
+#include <winrt/Windows.UI.Xaml.Hosting.h>
+
+#include <Windows.UI.Xaml.Hosting.DesktopWindowXamlSource.h>
+
+#include <memory>
