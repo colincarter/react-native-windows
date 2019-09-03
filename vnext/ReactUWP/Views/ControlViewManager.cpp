@@ -24,7 +24,7 @@ folly::dynamic ControlViewManager::GetNativeProps() const {
 void ControlViewManager::UpdateProperties(
     ShadowNodeBase *nodeToUpdate,
     const folly::dynamic &reactDiffMap) {
-  auto control(nodeToUpdate->GetView().as<winrt::Control>());
+  auto control(nodeToUpdate->GetActualControl());
 
   bool implementsPadding = nodeToUpdate->ImplementsPadding();
 

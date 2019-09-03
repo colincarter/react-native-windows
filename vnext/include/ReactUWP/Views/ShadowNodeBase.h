@@ -11,6 +11,7 @@
 
 #include <ReactWindowsCore/ReactWindowsAPI.h>
 #include "KeyboardEventHandler.h"
+#include <winrt/Windows.UI.Xaml.Controls.h>
 
 namespace react {
 namespace uwp {
@@ -83,9 +84,14 @@ struct REACTWINDOWS_EXPORT ShadowNodeBase : public facebook::react::ShadowNode {
   }
 
   ViewManagerBase *GetViewManager() const;
-  XamlView GetView() const {
+  XamlView GetView() const{
     return m_view;
   }
+
+  virtual winrt::Control GetActualControl() const {
+    return m_view.as<winrt::Control>();
+  }
+
   int64_t GetParent() const {
     return m_parent;
   }
