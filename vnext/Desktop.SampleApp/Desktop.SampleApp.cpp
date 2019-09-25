@@ -4,6 +4,8 @@
 #include "Desktop.SampleApp.h"
 #include <memory>
 
+#include <InstanceManager.h>
+
 #include <winrt/Windows.UI.h>
 #include <winrt/Windows.UI.Xaml.Controls.h>
 #include <winrt/Windows.UI.Xaml.Hosting.h>

@@ -1,3 +1,3 @@
 #include "stdafx.h"
 
-#pragma comment(lib, "windowsapp");
+#pragma comment(lib, "windowsapp")
