@@ -54,6 +54,24 @@ WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
       HWND interopHwnd;
       winrt::check_hresult(dwxsn->get_WindowHandle(&interopHwnd));
 
+      std::string jsBundlePath;
+      std::vector<std::tuple<
+        std::string,
+        facebook::xplat::module::CxxModule::Provider,
+        std::shared_ptr<facebook::react::MessageQueueThread>>> cxxModules;
+      std::shared_ptr<facebook::react::IUIManager> uimanager;
+      std::shared_ptr<facebook::react::MessageQueueThread> jsQueue;
+      std::shared_ptr<facebook::react::MessageQueueThread> nativeQueue;
+      auto devSettings = std::make_shared<facebook::react::DevSettings>();
+
+      auto instance = facebook::react::CreateReactInstance(
+        std::move(jsBundlePath),
+        std::move(cxxModules),
+        std::move(uimanager),
+        std::move(jsQueue),
+        std::move(nativeQueue),
+        std::move(devSettings));
+
       SetWindowPos(interopHwnd, 0, 0, 0, createStruct->cx, createStruct->cy, SWP_SHOWWINDOW);
 
       SetWindowLongPtrW(hWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(dwxsn));
